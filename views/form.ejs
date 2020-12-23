@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>    
+<head>
+        
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Express Node Mongoose</title>
 </head>
 <body>
-    <form action="/" method="POST">
+    <form action="/post" method="POST">
         <div class="form-group">
             <label for="title">Title</label>
             <input required type="text" name="title" id="title" class="form-control"><!-- Make sure ID matches up to the database ID/COLUMN otherwise data won't pass through for that column -->
@@ -34,9 +35,9 @@
           </tr>
     <% for(var i = 0; i < postObj.length; i++) { %>
         <tr>
-       <td> <%= postObj[i].title %></td>
-       <td> <%= postObj[i].description %></td>
-       <td> <%= postObj[i].rating %></td>
+       <td style="text-align:center; overflow:hidden; table-layout:fixed;"> <a href="./post/<%=postObj[i].id %>"><%= postObj[i].title %></a></td>
+       <td style="text-align:center; overflow:hidden; table-layout:fixed;width: 280px;"> <%= postObj[i].description %></td>
+       <td style="text-align:center; overflow:hidden; table-layout:fixed;"> <%= postObj[i].rating %>/10</td>
       
        <%} %>
     </tr>

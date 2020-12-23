@@ -19,7 +19,9 @@ app.listen(5000);
 app.use('/post',postRoute);
 
 //ROUTES
-
+app.get('/',(req,res)=>{
+    res.render('home');
+});
 //connect to database
 mongoose.connect(process.env.DB_CONNECTION,{ useNewUrlParser: true },()=>{
     console.log("connected!!!!");
