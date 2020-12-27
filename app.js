@@ -4,11 +4,13 @@ const mongoose = require("mongoose")
 const bodyParser = require("body-parser");
 //const fs = require('fs');
 const postRoute = require('./routes/post');
+const methodOverride = require('method-override')
 //const { urlencoded } = require("body-parser");
 require('dotenv/config');
 
 app.set('view engine','ejs');
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 app.use(bodyParser.json());
 //Listen to server
 app.listen(5000);
